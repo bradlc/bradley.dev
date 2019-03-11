@@ -2,6 +2,8 @@ let CleanCSS = require('clean-css')
 let htmlmin = require('html-minifier')
 
 module.exports = eleventyConfig => {
+  eleventyConfig.addPassthroughCopy('img')
+
   eleventyConfig.addFilter('cssmin', code => {
     return new CleanCSS({}).minify(code).styles
   })
